@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://new_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/Player.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ColorUpShader.tres" type="Shader" id=11]
 [ext_resource path="res://Prefabs/Familiar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://OakTree.cs" type="Script" id=13]
+[ext_resource path="res://ChanellingNode.cs" type="Script" id=14]
 [ext_resource path="res://Prefabs/Rock.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -181,6 +182,19 @@ offset = Vector2( 0, -20 )
 region_enabled = true
 region_rect = Rect2( 163, 163, 38, 74 )
 script = ExtResource( 9 )
+
+[node name="ChanellingNode" type="Sprite" parent="TileMap/TileMap2"]
+material = SubResource( 1 )
+position = Vector2( 216, 304 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 72, 0, 48, 32 )
+region_filter_clip = true
+script = ExtResource( 14 )
+chanellingTime = 2.5
+chanellingRadius = 70.0
+itemChannelled = "wood"
+recoveryTime = 2.5
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 166.153, 114.035 )
