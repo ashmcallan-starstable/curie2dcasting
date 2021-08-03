@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tree.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/Decorations/Decorations.png" type="Texture" id=2]
+[ext_resource path="res://ColorUpShader.tres" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/ColorModifier = Color( 0.501961, 0.501961, 0.501961, 1 )
+
+[node name="Sprite4" type="Sprite" groups=[
+"Green",
+"Tree",
+]]
+material = SubResource( 1 )
+position = Vector2( 341.758, 115.2 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -20 )
+region_enabled = true
+region_rect = Rect2( 163, 163, 38, 74 )
+script = ExtResource( 1 )

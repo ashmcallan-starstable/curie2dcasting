@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Vine.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/Decorations/Decorations.png" type="Texture" id=2]
+
+[node name="Sprite7" type="Sprite" groups=[
+"Green",
+"Vine",
+]]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 136, 41, 16, 13 )
+script = ExtResource( 1 )
