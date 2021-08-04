@@ -53,7 +53,7 @@ public class ChanellingNode : WorldObject
 	}
 
 	public new void Input(Node viewport, InputEvent inputEvent, int shapeId){
-		// WARNING; Overrides WorldObject!
+		// WARNING; Overrides and does not call WorldObject.Input!
 
 		if(inputEvent is InputEventMouseButton && ((InputEventMouseButton)inputEvent).Pressed) {
 
@@ -166,7 +166,7 @@ public class ChanellingNode : WorldObject
 	/// If the node can be channelled, returns true
 	/// </summary>
 	/// <returns></returns>
-	public bool IsChannellingOkay() {
+	public virtual bool IsChannellingOkay() {
 
 		// Check Recovery
 		if(isRecovering) {
