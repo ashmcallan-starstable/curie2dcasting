@@ -25,6 +25,7 @@ public class Status : Label
 		string tx = "";
 		foreach (KeyValuePair<string, int> item in inventory)
 		{
+			if(tx != "") tx+="\n";
 			tx += $"{item.Key}:\t{item.Value}";
 		}
 		Text = tx;

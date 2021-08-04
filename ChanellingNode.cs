@@ -64,7 +64,7 @@ public class ChanellingNode : WorldObject
 					CancelChanelling();
 				}
 			} else {
-				GD.Print("Channel Node, {itemChannelled}. Click again to start chanelling");
+				GD.Print($"Channel Node, {itemChannelled}. Click again to start chanelling");
 			}
 			
 			selected = this;
