@@ -334,7 +334,11 @@ public class SpellCaster : Node
 //  }
 }
 
-
+public class Spell{
+	public List<Element> elements = new List<Element>();
+	public string name;
+	public Func<object> perform;
+}
 
 public class Component{
 	public string tag;

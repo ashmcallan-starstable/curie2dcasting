@@ -23,6 +23,8 @@ public class Familiar : KinematicBody2D
 	[Export]
 	public List<Element> elements;
 
+	public Element? channeling;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -63,27 +65,55 @@ public class Familiar : KinematicBody2D
 	 }
 
  }
+	public void ElementSelect(Element e){
+		if(SpellCaster.target != null){
+			if(channeling != null){SpellCaster.target.RemoveElement(e);}
+			SpellCaster.target.Add(e);
+		}
+		channeling = e;
+		Clear();
+	}
 
+	public void Clear(){
+		foreach(Node n in GetChildren()){
+			if(n is VBoxContainer){
+				n.QueueFree();
+			}
+		}
+	}
 
 	 public void Input(Node viewport, InputEvent inputEvent, int shapeId){
-		 if(inputEvent is InputEventMouseButton && ((InputEventMouseButton)inputEvent).ButtonIndex == 2){
-			 GD.Print("remap");
-			 if(sprite.Scale.x > 1f){
-				if(GetParent().Name != "Player"){
-					this.GetParent().RemoveChild(this);
-					Player.current.AddChild(this);
-					this.Position = new Vector2(0,12);
+		if(inputEvent is InputEventMouseButton){
+			if( ((InputEventMouseButton)inputEvent).ButtonIndex == 2){
+				GD.Print("remap");
+				if(sprite.Scale.x > 1f){
+					if(GetParent().Name != "Player"){
+						this.GetParent().RemoveChild(this);
+						Player.current.AddChild(this);
+						this.Position = new Vector2(0,12);
+					}else{
+						Vector2 p = GlobalPosition;
+						this.GetParent().RemoveChild(this);
+						Player.current.GetTree().Root.FindNode("TileMap2",true,false).AddChild(this);
+						GlobalPosition = p+new Vector2(0,16);
+					}
 				}else{
-					Vector2 p = GlobalPosition;
-					this.GetParent().RemoveChild(this);
-					Player.current.GetTree().Root.FindNode("TileMap2",true,false).AddChild(this);
-					GlobalPosition = p+new Vector2(0,16);
+					player.Play("Walk");	
 				}
-				}else{
-		 			player.Play("Walk");
-				
-			 }
-		 }
+			}else if(((InputEventMouseButton)inputEvent).ButtonIndex == 1){
+				VBoxContainer vbox = new VBoxContainer();
+				foreach(Element e in this.elements){
+					Button b = new Button();
+					b.Text = e.ToString();
+					Godot.Collections.Array a = new Godot.Collections.Array();
+					a.Add(e);
+					b.Connect("pressed",this,"ElementSelect",a);
+					vbox.AddChild(b);
+					this.AddChild(vbox);
+				}
+			}
+		}
+		
 	 }
 
 }

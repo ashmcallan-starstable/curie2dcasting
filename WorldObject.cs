@@ -14,6 +14,9 @@ public class WorldObject : SpellTarget
 
 	public Color store = new Color(0.5f,0.5f,0.5f,1f);
 
+	[Export]
+	public List<string> ValidSpells = new List<string>();
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {

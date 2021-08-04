@@ -225,97 +225,10 @@ script = ExtResource( 6 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="SpellContainer" type="GridContainer" parent="CanvasLayer2"]
+[node name="SpellContainer" type="VBoxContainer" parent="CanvasLayer2"]
 margin_right = 40.0
 margin_bottom = 40.0
-columns = 4
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button2" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_right = 47.0
-margin_bottom = 20.0
-text = "Me"
-
-[node name="Button7" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 51.0
-margin_right = 127.0
-margin_bottom = 20.0
-text = "Here"
-
-[node name="Button6" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 131.0
-margin_right = 197.0
-margin_bottom = 20.0
-text = "That"
-
-[node name="Button10" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 201.0
-margin_right = 254.0
-margin_bottom = 20.0
-text = "There"
-
-[node name="Button" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_top = 24.0
-margin_right = 47.0
-margin_bottom = 44.0
-text = "Vines"
-
-[node name="Button5" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 51.0
-margin_top = 24.0
-margin_right = 127.0
-margin_bottom = 44.0
-text = "Tree"
-
-[node name="Button9" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 131.0
-margin_top = 24.0
-margin_right = 197.0
-margin_bottom = 44.0
-text = "Creature"
-
-[node name="Button11" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 201.0
-margin_top = 24.0
-margin_right = 254.0
-margin_bottom = 44.0
-text = "Rock"
-
-[node name="Button3" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_top = 48.0
-margin_right = 47.0
-margin_bottom = 68.0
-text = "Grow"
-
-[node name="Button4" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 51.0
-margin_top = 48.0
-margin_right = 127.0
-margin_bottom = 68.0
-text = "Transform"
-
-[node name="Button8" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 131.0
-margin_top = 48.0
-margin_right = 197.0
-margin_bottom = 68.0
-text = "Bridge"
-
-[node name="Button12" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_left = 201.0
-margin_top = 48.0
-margin_right = 254.0
-margin_bottom = 68.0
-text = "Follow"
-
-[node name="Button13" type="Button" parent="CanvasLayer2/SpellContainer"]
-margin_top = 72.0
-margin_right = 47.0
-margin_bottom = 92.0
-text = "Stay"
 
 [node name="Panel" type="Panel" parent="CanvasLayer2"]
 modulate = Color( 1, 1, 1, 0.65098 )
@@ -343,17 +256,3 @@ script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button2" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "me" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button7" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "here" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button6" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "that" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button10" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "there" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "vine" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button5" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "tree" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button9" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "creature" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button11" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "rock" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button3" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "appear" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button4" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "transform" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button8" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "bridge" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button12" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "follow" ]]
-[connection signal="pressed" from="CanvasLayer2/SpellContainer/Button13" to="CanvasLayer2/SpellContainer" method="Cast" binds= [ "stay" ]]
