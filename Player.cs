@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Player : KinematicBody2D
 {
@@ -9,6 +10,38 @@ public class Player : KinematicBody2D
 	public WorldObject sprite;
 	AnimationPlayer animationPlayer;
 
+	protected Dictionary<string, int> inventory; 
+
+	[Signal] public delegate void InventoryChanged();
+
+	public void AddToInventory(string item) {
+		if(inventory.ContainsKey(item)) {
+			inventory[item] ++;
+		} else {
+			inventory[item] = 1;
+		}
+		EmitSignal(nameof(InventoryChanged));
+	}
+
+	public bool RemoveFromInventory(string item) {
+		if(!inventory.ContainsKey(item)) return false;
+
+		inventory[item] --;
+		if(inventory[item] == 0) inventory.Remove(item);
+
+		EmitSignal(nameof(InventoryChanged));
+		return true;
+	}
+
+	public Dictionary<string, int> Inventory {get {
+		Dictionary<string, int> returnV = new Dictionary<string, int>();
+		foreach (KeyValuePair<string, int> item in inventory)
+		{
+			returnV.Add(item.Key, item.Value);
+		}
+		return returnV;
+	}}
+
 	static public Player current;
 
     // Called when the node enters the scene tree for the first time.
@@ -17,7 +50,11 @@ public class Player : KinematicBody2D
         sprite = (WorldObject)FindNode("Sprite",true,false);
 		animationPlayer = FindNode("AnimationPlayer",true,false) as AnimationPlayer;
 		animationPlayer.PlaybackSpeed = 2f;
+
+		inventory = new Dictionary<string, int>();
 		current = this;
+		
+		EmitSignal(nameof(InventoryChanged));
     }
 
  // Called every frame. 'delta' is the elapsed time since the previous frame.

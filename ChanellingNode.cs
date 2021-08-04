@@ -134,7 +134,7 @@ public class ChanellingNode : WorldObject
 	/// </summary>
 	public virtual void FinishChannelling() {
 		GD.Print($"Adding 1x {itemChannelled} to Player Inventory...");
-		// TODO: Add inventory adjustment here!
+		Player.current.AddToInventory(itemChannelled);
 	}
 
 	/// <summary>

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Status : Label
 {
@@ -18,9 +19,14 @@ public class Status : Label
 			current.Text = text+"\n"+current.Text;
 		}
 	}
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+
+	public void OnPlayerInventoryChanged() {
+		Dictionary<string, int> inventory = Player.current.Inventory;
+		string tx = "";
+		foreach (KeyValuePair<string, int> item in inventory)
+		{
+			tx += $"{item.Key}:\t{item.Value}";
+		}
+		Text = tx;
+	}
 }
