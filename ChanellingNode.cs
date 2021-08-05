@@ -105,6 +105,7 @@ public class ChanellingNode : WorldObject
 		if(isRecovering) {
 			remainingRecoveryTime -= delta;
 			if(remainingRecoveryTime <= 0) FinishRecovery();
+			else ((ShaderMaterial)Material).SetShaderParam("ColorModifier",store * 0.5f);
 		}
 
 		
