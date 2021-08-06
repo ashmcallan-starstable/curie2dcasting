@@ -70,11 +70,17 @@ tracks/0/keys = {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 16 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 tileMapRoot = NodePath("TileMap/TileMap2")
 channellingObjects = {
 "acorn": 2,
 "string": 4,
 "wood": 4
+}
+lockedChannellingObjects = {
+"gold": 3
 }
 
 [node name="TileMap" type="TileMap" parent="."]

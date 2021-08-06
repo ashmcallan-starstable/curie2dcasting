@@ -2,20 +2,23 @@
 
 [ext_resource path="res://Sprites/Decorations/Decorations.png" type="Texture" id=1]
 [ext_resource path="res://ColorUpShader.tres" type="Shader" id=2]
-[ext_resource path="res://ChanellingNode.cs" type="Script" id=3]
+[ext_resource path="res://LockedChanellingNode.cs" type="Script" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/ColorModifier = Color( 0.501961, 0.501961, 0.501961, 1 )
 
-[node name="ChanellingNode" type="Sprite"]
+[node name="Sprite10" type="Sprite"]
 material = SubResource( 1 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 72, 0, 48, 32 )
+region_rect = Rect2( 70, 32, 48, 32 )
 region_filter_clip = true
 script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
 chanellingTime = 2.5
 chanellingRadius = 70.0
 itemChannelled = "wood"
-recoveryTime = 2.5
+recoveryTime = 10.0
